@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup Biaya Bandwidth</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-content">
+        <h1>Setup Biaya Bandwidth</h1>
+        <p>Website sederhana untuk menghitung biaya bandwidth dengan tampilan biru dan fitur pengaturan backend.</p>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="card card-large">
+        <h2>Pengaturan Biaya Bandwidth</h2>
+        <p>Atur nama paket, harga per GB, dan batas bandwidth untuk hitung biaya otomatis.</p>
+
+        <form id="settings-form" class="form-grid">
+          <label>
+            Nama Paket
+            <input type="text" id="plan-name" placeholder="Paket Premium" value="Paket Standar" />
+          </label>
+          <label>
+            Harga per GB (Rp)
+            <input type="number" id="price-per-gb" min="0" step="100" value="500" />
+          </label>
+          <label>
+            Batas Bandwidth (GB)
+            <input type="number" id="bandwidth-limit" min="0" step="1" value="100" />
+          </label>
+          <label>
+            Diskon (opsional %)
+            <input type="number" id="discount" min="0" max="100" step="1" value="0" />
+          </label>
+
+          <div class="button-row">
+            <button type="button" id="save-settings">Simpan Pengaturan</button>
+            <button type="button" id="reset-settings" class="secondary">Reset</button>
+          </div>
+        </form>
+
+        <div id="settings-message" class="info-box">Pengaturan akan disimpan secara lokal untuk percobaan backend sederhana.</div>
+      </section>
+
+      <section class="card card-large">
+        <h2>Estimasi Biaya Bulanan</h2>
+        <p>Masukkan pemakaian data untuk melihat total biaya berdasarkan pengaturan paket.</p>
+
+        <form id="calculator-form" class="form-grid">
+          <label>
+            Pemakaian Saat Ini (GB)
+            <input type="number" id="used-bandwidth" min="0" step="0.1" value="20" />
+          </label>
+          <label>
+            Pemakaian Tambahan (GB)
+            <input type="number" id="extra-bandwidth" min="0" step="0.1" value="5" />
+          </label>
+          <label>
+            Zona / Lokasi Backend
+            <select id="backend-location">
+              <option value="jakarta">Jakarta</option>
+              <option value="singapore">Singapore</option>
+              <option value="tokyo">Tokyo</option>
+            </select>
+          </label>
+
+          <div class="button-row">
+            <button type="button" id="calculate-cost">Hitung Biaya</button>
+          </div>
+        </form>
+
+        <div class="result-box" aria-live="polite">
+          <div class="result-row"><span>Nama Paket:</span> <strong id="result-plan">-</strong></div>
+          <div class="result-row"><span>Total Bandwidth:</span> <strong id="result-total-bandwidth">-</strong></div>
+          <div class="result-row"><span>Harga per GB:</span> <strong id="result-price">-</strong></div>
+          <div class="result-row"><span>Biaya Diskon:</span> <strong id="result-discount">-</strong></div>
+          <div class="result-row total"><span>Estimasi Total:</span> <strong id="result-total-cost">-</strong></div>
+          <div class="result-row"><span>Lokasi Backend:</span> <strong id="result-location">-</strong></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Website sederhana GitHub Pages · Biru modern · Simulasi setup backend biaya bandwidth</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
